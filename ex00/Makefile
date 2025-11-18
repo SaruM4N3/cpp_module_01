@@ -1,6 +1,6 @@
 NAME = Zombie 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
 RM = rm -rf
 
@@ -18,9 +18,9 @@ MAKEFLAGS += --no-print-directory
 .DEFAULT_GOAL = all  # Set default goal to make all
 
 # Base rule
-all: $(MEGAPHONE)
+all: $(NAME)
 
-$(MEGAPHONE): $(OBJS)
+$(NAME): $(OBJS)
 	@printf "$(GREY)🔨 "
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
 	@printf "\n $(GREEN)✅ Build done!$(RESET)\n"
@@ -40,7 +40,7 @@ clean:
 
 fclean: clean
 	@printf "$(RED)🗑️  "
-	$(RM) $(MEGAPHONE)
+	$(RM) $(NAME)
 	@printf "$(RESET)\n"
 
 re: fclean all
