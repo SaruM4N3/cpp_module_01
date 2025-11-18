@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 22:07:27 by zsonie            #+#    #+#             */
-/*   Updated: 2025/11/18 01:12:51 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/11/18 02:34:15 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 int main(void)
 {
-	Zombie *amir = newZombie("amir");
-	Zombie *pyv = newZombie("pyvendladrogue");
-	randomChump("pablo");
-	randomChump("timeo");
-	randomChump("david");
-	amir->announce();
-	pyv->announce();
-	delete amir;
-	delete pyv;
+	Zombie *horde;
+	int N = 10;
+	horde = zombieHorde(N, "pablo");
+	for (int i = 0; i < N; i++)
+		horde[i].announce();
+	delete[] horde;
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 22:07:27 by zsonie            #+#    #+#             */
-/*   Updated: 2025/11/18 01:12:51 by zsonie           ###   ########lyon.fr   */
+/*   Created: 2025/11/17 22:02:52 by zsonie            #+#    #+#             */
+/*   Updated: 2025/11/18 02:38:07 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Zombie.hpp"
+#include<string>
 
-int main(void)
+class Zombie 
 {
-	Zombie *amir = newZombie("amir");
-	Zombie *pyv = newZombie("pyvendladrogue");
-	randomChump("pablo");
-	randomChump("timeo");
-	randomChump("david");
-	amir->announce();
-	pyv->announce();
-	delete amir;
-	delete pyv;
-}
+public:
+	Zombie();
+	~Zombie();
+	void setName(std::string _name);
+	void announce( void ); 
+private:
+	std::string name;
+};
+
+Zombie* zombieHorde( int N, std::string name );
