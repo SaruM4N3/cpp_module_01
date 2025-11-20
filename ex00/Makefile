@@ -29,13 +29,13 @@ $(NAME): $(OBJS)
 FORCE:
 $(BUILDDIR)/%.o: %.cpp
 	@printf "$(GREY)🔨 "
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(NORELINK) -c $< -o $@
 	@printf "$(RESET)"
 
 clean:
 	@printf "$(RED)🗑️  "
-	$(RM) -r $(BUILDDIR)
+	$(RM) $(BUILDDIR)
 	@printf "$(RESET)\n"
 
 fclean: clean

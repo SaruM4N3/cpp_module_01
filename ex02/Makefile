@@ -5,9 +5,7 @@ NORELINK = -MMD -MP
 RM = rm -rf
 
 BUILDDIR = obj
-SRCS = Zombie.cpp\
-	zombieHorde.cpp\
-	main.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)
 DEPS = $(OBJS:.o=.d)

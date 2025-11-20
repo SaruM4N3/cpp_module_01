@@ -1,12 +1,13 @@
-NAME = ZombieHorde
+NAME = UnnecessaryViolence
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
 RM = rm -rf
 
 BUILDDIR = obj
-SRCS = Zombie.cpp\
-	zombieHorde.cpp\
+SRCS = HumanA.cpp\
+	HumanB.cpp\
+	Weapon.cpp\
 	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)
