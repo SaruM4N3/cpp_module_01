@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 19:59:46 by zsonie            #+#    #+#             */
-/*   Updated: 2025/11/22 02:51:06 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/11/23 04:00:42 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum
 
 static input stringToEnum(std::string &level)
 {
-	const std::string levels[] = {"Debug", "Info", "Warning", "Error"};
+	const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < NotFound; i++)
 	{
@@ -45,37 +45,52 @@ Harl::~Harl()
 
 void Harl::debug(void)
 {
-	std::cout << "Debug" << std::endl;
+	std::cout << "DEBUG level:\n\
+	I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger.\n\
+	I really do!"
+			  << std::endl;
 }
-void info(void)
+void Harl::info(void)
 {
+	std::cout << "INFO level:\n\
+	I cannot believe adding extra bacon costs more money.\n\
+	You didn’t put enough bacon in my burger!\n\
+	If you did, I wouldn’t be asking for more!"
+			  << std::endl;
 }
-void warning(void)
+void Harl::warning(void)
 {
+	std::cout << "WARNING level:\n\
+	I think I deserve to have some extra bacon for free.\n\
+	I’ve been coming for years,\n\
+	whereas you started working here just last month."
+			  << std::endl;
 }
-void error(void)
+void Harl::error(void)
 {
+	std::cout << "ERROR level:\n\
+	This is unacceptable!\n\
+	I want to speak to the manager now."
+			  << std::endl;
 }
 
 void Harl::complain(std::string level)
 {
-	// void *func;
+	void (Harl::*ptr_f[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	// func = (void *)&debug;
 	switch (stringToEnum(level))
 	{
 	case Debug:
-		// func;
+		(this->*ptr_f[Debug])();
 		break;
 	case Info:
-		std::cout << "Info" << std::endl;
+		(this->*ptr_f[Info])();
 		break;
 	case Warning:
-		std::cout << "Warning" << std::endl;
+		(this->*ptr_f[Warning])();
 		break;
 	case Error:
-		// error();
-		std::cout << "Error" << std::endl;
+		(this->*ptr_f[Error])();
 		break;
 	default:
 		std::cout << "Wrong argument" << std::endl;

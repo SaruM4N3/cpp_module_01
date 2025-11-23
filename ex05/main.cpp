@@ -6,7 +6,7 @@
 /*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 19:58:26 by zsonie            #+#    #+#             */
-/*   Updated: 2025/11/22 01:47:06 by zsonie           ###   ########lyon.fr   */
+/*   Updated: 2025/11/23 04:02:15 by zsonie           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 int main(void)
 {
-	std::string test;
-	std::cin >> test;
 	Harl carl;
-	carl.complain(test);
+	carl.complain("DEBUG");
+	carl.complain("INFO");
+	carl.complain("WARNING");
+	carl.complain("ERROR");
+	carl.complain("");
+	carl.complain("Debug");
 	return 0;
 }
