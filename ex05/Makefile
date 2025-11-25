@@ -1,5 +1,5 @@
-NAME = Harl2.0
-CC = g++
+NAME = harl2.0
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
 RM = rm -rf
@@ -30,6 +30,9 @@ $(BUILDDIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(NORELINK) -c $< -o $@
 	@printf "$(RESET)"
+
+debug: fclean
+	@$(MAKE) all CC=g++
 
 clean:
 	@printf "$(RED)🗑️  "

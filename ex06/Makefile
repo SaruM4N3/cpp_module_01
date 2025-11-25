@@ -1,11 +1,12 @@
-NAME = sedIsForLosers
+NAME = harlFilter
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I .
 NORELINK = -MMD -MP
 RM = rm -rf
 
 BUILDDIR = obj
-SRCS = main.cpp
+SRCS = Harl.cpp\
+	main.cpp
 
 OBJS = $(SRCS:%.cpp=$(BUILDDIR)/%.o)
 DEPS = $(OBJS:.o=.d)
